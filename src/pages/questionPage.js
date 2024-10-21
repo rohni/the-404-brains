@@ -43,18 +43,22 @@ const nextQuestion = (statusBar) => {
     updateStatusBar(statusBar, quizData.currentQuestionIndex + 1, quizData.questions.length)
     initQuestionPage();
   } else if (quizData.currentQuestionIndex === quizData.questions.length -1) {
-    console.log("Create finale page with score");
-    const nextButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
-    nextButton.disabled = true;
-
-    const finaleMessage = document.createElement('p');
-    finaleMessage.textContent = 'Congratulations! You have completed the quiz.'
-    const userInterface = document.getElementById(USER_INTERFACE_ID);
-    const finalResultBtn = document.createElement('a');
-    finalResultBtn.textContent = 'Show Final Result!';
-    finalResultBtn.classList.add(FINAL_RESULT_BUTTON_ID);
-    userInterface.appendChild(finaleMessage);
-    userInterface.appendChild(finalResultBtn);
+    showEndOfTheQuiz();
   }
+};
+
+const showEndOfTheQuiz = () => {
+  console.log("Create finale page with score");
+  const nextButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
+  nextButton.disabled = true;
+
+  const finaleMessage = document.createElement('p');
+  finaleMessage.textContent = 'Congratulations! You have completed the quiz.'
+  const userInterface = document.getElementById(USER_INTERFACE_ID);
+  const finalResultBtn = document.createElement('a');
+  finalResultBtn.textContent = 'Show Final Result!';
+  finalResultBtn.classList.add(FINAL_RESULT_BUTTON_ID);
+  userInterface.appendChild(finaleMessage);
+  userInterface.appendChild(finalResultBtn);
 };
  

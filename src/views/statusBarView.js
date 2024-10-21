@@ -5,7 +5,7 @@ export const createStatusBar = (currentQuestion, totalQuestions) => {
     return statusBar;
 }
 
-// Have to add Score too after Esens feature
+// Have to add Score too after Esen's feature
 
 export const updateStatusBar = (statusBarElement, currentQuestion, totalQuestions) => {
     statusBarElement.innerHTML = `${currentQuestion}/${totalQuestions}`
