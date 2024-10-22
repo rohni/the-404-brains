@@ -1,4 +1,6 @@
-export const createStatusBar = (currentQuestion, totalQuestions) => {
+import {correctAnswersCount} from '../pages/questionPage.js'
+
+export const createStatusBar = (currentQuestion, totalQuestions, score = correctAnswersCount) => {
     const statusBar = document.createElement('div');
     statusBar.classList.add('status-bar');
 
@@ -13,20 +15,28 @@ export const createStatusBar = (currentQuestion, totalQuestions) => {
     statusBar.appendChild(progressBarContainer);
 
     const progressText = document.createElement('span');
+    progressText.classList.add('progress-text');
     progressText.textContent = `${currentQuestion}/${totalQuestions}`;
     statusBar.appendChild(progressText);
+    
+    const scoreOfPlayer = document.createElement('span');
+    scoreOfPlayer.textContent = `${score}`;
+    scoreOfPlayer.classList.add('score');
+    statusBar.appendChild(scoreOfPlayer);
 
     return statusBar;
 }
 
 // Have to add Score too after Esen's feature
 
-export const updateStatusBar = (statusBarElement, currentQuestion, totalQuestions) => {    
+export const updateStatusBar = (statusBarElement, currentQuestion, totalQuestions, score) => {    
     const progressBar = statusBarElement.querySelector('.progress-bar');
     const progressBarWidth = (currentQuestion / totalQuestions) * 100;
-
     progressBar.style.width = `${progressBarWidth}%`;
 
-    const progressText = statusBarElement.querySelector('span');
-    progressText.textContent = `${currentQuestion}/${totalQuestions}`
+    const progressText = statusBarElement.querySelector('.progress-text');
+    progressText.textContent = `${currentQuestion}/${totalQuestions}`;
+
+    const scoreElement = statusBarElement.querySelector('.score');
+    scoreElement.textContent = `${score}`;
 }
