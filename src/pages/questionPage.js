@@ -48,7 +48,7 @@ export const initQuestionPage = () => {
         correctAnswerElement.style.backgroundColor = 'green';
         answerElement.style.backgroundColor = 'red';
        
-      } setTimeout(function(){nextQuestion(statusBar);}
+      } setTimeout(()=>{nextQuestion(statusBar);}
       ,2000);
     });    
     answersListElement.appendChild(answerElement);
