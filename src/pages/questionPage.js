@@ -32,6 +32,8 @@ export const initQuestionPage = () => {
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {   
     const answerElement = createAnswerElement(key, answerText);
     answerElement.addEventListener('click', () => {
+      const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
+      skipButton.disabled = true;
       if (answerClicked) return;
       answerClicked = true;
       
@@ -48,7 +50,7 @@ export const initQuestionPage = () => {
       }
     });    
     answersListElement.appendChild(answerElement);
-  }
+  }  
 
   document.getElementById(SKIP_QUESTION_BUTTON_ID)
     .addEventListener('click', () => nextQuestion(statusBar));
@@ -66,7 +68,7 @@ const nextQuestion = (statusBar) => {
   } else if (quizData.currentQuestionIndex === quizData.questions.length -1) {
     showEndOfTheQuiz();
   }
-  
+
   updateStatusBar(statusBar, quizData.currentQuestionIndex + 1, quizData.questions.length, correctAnswersCount);
 };
 
