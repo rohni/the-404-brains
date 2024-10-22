@@ -23,7 +23,6 @@ export const initQuestionPage = () => {
 
   userInterface.appendChild(questionElement);
 
-  // Status bar
   const statusBar = createStatusBar(quizData.currentQuestionIndex + 1, quizData.questions.length)
   userInterface.prepend(statusBar);
 
@@ -50,17 +49,15 @@ export const initQuestionPage = () => {
         correctAnswerElement.style.backgroundColor = 'green';
         answerElement.style.backgroundColor = 'red';
        
-      } setTimeout(function(){nextQuestion(statusBar);}
-      ,2000);
+      } 
+
+      setTimeout(() => nextQuestion(statusBar), 2000);
     });    
     answersListElement.appendChild(answerElement);
   }
 
   document.getElementById(SKIP_QUESTION_BUTTON_ID)
     .addEventListener('click',function(){nextQuestion(statusBar)});
-
-  document.getElementById(NEXT_QUESTION_BUTTON_ID)
-    .addEventListener('click', () => nextQuestion(statusBar))
 };
 
 const nextQuestion = (statusBar) => {
@@ -78,8 +75,7 @@ const nextQuestion = (statusBar) => {
 
 const showEndOfTheQuiz = () => {
   console.log("You have reached the last question!");
-  const nextButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
-  nextButton.disabled = true;
+
   const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
   skipButton.disabled = true;
 
