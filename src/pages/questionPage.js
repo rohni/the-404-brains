@@ -1,6 +1,5 @@
 import {
   ANSWERS_LIST_ID,
-  NEXT_QUESTION_BUTTON_ID,
   SKIP_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
   FINAL_RESULT_BUTTON_ID
@@ -9,6 +8,7 @@ import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 import { createStatusBar, updateStatusBar } from '../views/statusBarView.js';
+import { initFinishPage } from './finishPage.js';
 
 export let correctAnswersCount = 0;
 let wrongAnswersCount = 0;
@@ -93,6 +93,7 @@ const showEndOfTheQuiz = () => {
 
 const showFinalResult = () => {
   console.log("Redirect to Final result page");
+  initFinishPage();
 };
  
 const showCorrectAnswer = () => {
