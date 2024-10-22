@@ -32,6 +32,8 @@ export const initQuestionPage = () => {
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {   
     const answerElement = createAnswerElement(key, answerText);
     answerElement.addEventListener('click', () => {
+      const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
+      skipButton.disabled = true;
       if (answerClicked) return;
       answerClicked = true;
       
