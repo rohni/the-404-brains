@@ -10,7 +10,7 @@ import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 import { createStatusBar, updateStatusBar } from '../views/statusBarView.js';
 
-let correctAnswersCount = 0;
+export let correctAnswersCount = 0;
 let wrongAnswersCount = 0;
 
 export const initQuestionPage = () => {
@@ -58,13 +58,16 @@ export const initQuestionPage = () => {
 };
 
 const nextQuestion = (statusBar) => {
+  showCorrectAnswer();
+
   if (quizData.currentQuestionIndex < quizData.questions.length - 1) {
     quizData.currentQuestionIndex++;
-    updateStatusBar(statusBar, quizData.currentQuestionIndex + 1, quizData.questions.length)
     initQuestionPage();
   } else if (quizData.currentQuestionIndex === quizData.questions.length -1) {
     showEndOfTheQuiz();
   }
+  
+  updateStatusBar(statusBar, quizData.currentQuestionIndex + 1, quizData.questions.length, correctAnswersCount);
 };
 
 const showEndOfTheQuiz = () => {
@@ -88,5 +91,10 @@ const showEndOfTheQuiz = () => {
 
 const showFinalResult = () => {
   console.log("Redirect to Final result page");
+};
+ 
+
+const showCorrectAnswer = () => {
+  console.log("correct answers", correctAnswersCount);
 };
  
