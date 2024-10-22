@@ -14,7 +14,7 @@ let correctAnswersCount = 0;
 let wrongAnswersCount = 0;
 
 export const initQuestionPage = () => {
-  let answerClicked = false;
+  let answerClicked = false; 
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
 
@@ -38,6 +38,8 @@ export const initQuestionPage = () => {
       if (key === currentQuestion.correct) {
         correctAnswersCount++;
         answerElement.style.backgroundColor = 'green';
+       
+
       } else {
         wrongAnswersCount++;
         const correctAnswerElement = Array.from(answersListElement.children).find(
@@ -45,13 +47,15 @@ export const initQuestionPage = () => {
         );
         correctAnswerElement.style.backgroundColor = 'green';
         answerElement.style.backgroundColor = 'red';
-      }
+       
+      } setTimeout(function(){nextQuestion(statusBar);}
+      ,2000);
     });    
     answersListElement.appendChild(answerElement);
   }
 
   document.getElementById(SKIP_QUESTION_BUTTON_ID)
-    .addEventListener('click', () => nextQuestion(statusBar));
+    .addEventListener('click',function(){nextQuestion(statusBar)});
 
   document.getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', () => nextQuestion(statusBar))
