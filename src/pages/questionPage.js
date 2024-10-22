@@ -58,6 +58,7 @@ export const initQuestionPage = () => {
 
   document.getElementById(SKIP_QUESTION_BUTTON_ID)
     .addEventListener('click',() => nextQuestion(statusBar));
+  
 };
 
 const nextQuestion = (statusBar) => {
@@ -99,4 +100,9 @@ const showFinalResult = () => {
 const showCorrectAnswer = () => {
   console.log("correct answers", correctAnswersCount);
 };
- 
+
+export const resetQuiz = () => {
+  correctAnswersCount = 0;
+  wrongAnswersCount = 0;
+  quizData.currentQuestionIndex = 0;
+};
