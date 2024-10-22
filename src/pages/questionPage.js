@@ -30,34 +30,34 @@ export const initQuestionPage = () => {
 
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {   
     const answerElement = createAnswerElement(key, answerText);
+
     answerElement.addEventListener('click', () => {
       const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
       skipButton.disabled = true;
+      
       if (answerClicked) return;
       answerClicked = true;
       
       if (key === currentQuestion.correct) {
         correctAnswersCount++;
         answerElement.style.backgroundColor = 'green';
-       
-
       } else {
         wrongAnswersCount++;
-        const correctAnswerElement = Array.from(answersListElement.children).find(
-          (child) => child.innerHTML.includes(currentQuestion.correct)
+        const correctAnswerElement = Array.from(answersListElement.children).find((child) => 
+          child.innerHTML.includes(currentQuestion.correct)
         );
         correctAnswerElement.style.backgroundColor = 'green';
         answerElement.style.backgroundColor = 'red';
-       
       } 
 
       setTimeout(() => nextQuestion(statusBar), 2000);
     });    
+
     answersListElement.appendChild(answerElement);
   }
 
   document.getElementById(SKIP_QUESTION_BUTTON_ID)
-    .addEventListener('click',function(){nextQuestion(statusBar)});
+    .addEventListener('click',() => nextQuestion(statusBar));
 };
 
 const nextQuestion = (statusBar) => {
@@ -95,7 +95,6 @@ const showFinalResult = () => {
   console.log("Redirect to Final result page");
 };
  
-
 const showCorrectAnswer = () => {
   console.log("correct answers", correctAnswersCount);
 };
