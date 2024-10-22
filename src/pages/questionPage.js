@@ -50,8 +50,10 @@ export const initQuestionPage = () => {
     answersListElement.appendChild(answerElement);
   }
 
-  document
-    .getElementById(NEXT_QUESTION_BUTTON_ID)
+  document.getElementById(SKIP_QUESTION_BUTTON_ID)
+    .addEventListener('click', () => nextQuestion(statusBar));
+
+  document.getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', () => nextQuestion(statusBar))
 };
 
@@ -64,12 +66,6 @@ const nextQuestion = (statusBar) => {
     showEndOfTheQuiz();
   }
 };
-
-document.addEventListener('click', nextQuestion);
-    document
-    .getElementById(SKIP_QUESTION_BUTTON_ID)
-    .addEventListener('click', nextQuestion);
-  };
 
 const showEndOfTheQuiz = () => {
   console.log("You have reached the last question!");
