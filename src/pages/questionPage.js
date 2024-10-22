@@ -1,6 +1,7 @@
 import {
   ANSWERS_LIST_ID,
   NEXT_QUESTION_BUTTON_ID,
+  SKIP_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
   FINAL_RESULT_BUTTON_ID
 } from '../constants.js';
@@ -9,7 +10,11 @@ import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 import { createStatusBar, updateStatusBar } from '../views/statusBarView.js';
 
+let correctAnswersCount = 0;
+let wrongAnswersCount = 0;
+
 export const initQuestionPage = () => {
+  let answerClicked = false;
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
 
@@ -24,8 +29,24 @@ export const initQuestionPage = () => {
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
 
-  for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
+  for (const [key, answerText] of Object.entries(currentQuestion.answers)) {   
     const answerElement = createAnswerElement(key, answerText);
+    answerElement.addEventListener('click', () => {
+      if (answerClicked) return;
+      answerClicked = true;
+      
+      if (key === currentQuestion.correct) {
+        correctAnswersCount++;
+        answerElement.style.backgroundColor = 'green';
+      } else {
+        wrongAnswersCount++;
+        const correctAnswerElement = Array.from(answersListElement.children).find(
+          (child) => child.innerHTML.includes(currentQuestion.correct)
+        );
+        correctAnswerElement.style.backgroundColor = 'green';
+        answerElement.style.backgroundColor = 'red';
+      }
+    });    
     answersListElement.appendChild(answerElement);
   }
 
@@ -43,6 +64,12 @@ const nextQuestion = (statusBar) => {
     showEndOfTheQuiz();
   }
 };
+
+document.addEventListener('click', nextQuestion);
+    document
+    .getElementById(SKIP_QUESTION_BUTTON_ID)
+    .addEventListener('click', nextQuestion);
+  };
 
 const showEndOfTheQuiz = () => {
   console.log("You have reached the last question!");
