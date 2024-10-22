@@ -50,8 +50,10 @@ export const initQuestionPage = () => {
     answersListElement.appendChild(answerElement);
   }
 
-  document
-    .getElementById(NEXT_QUESTION_BUTTON_ID)
+  document.getElementById(SKIP_QUESTION_BUTTON_ID)
+    .addEventListener('click', () => nextQuestion(statusBar));
+
+  document.getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', () => nextQuestion(statusBar))
 };
 
@@ -65,16 +67,12 @@ const nextQuestion = (statusBar) => {
   }
 };
 
-document.addEventListener('click', nextQuestion);
-    document
-    .getElementById(SKIP_QUESTION_BUTTON_ID)
-    .addEventListener('click', nextQuestion);
-  };
-
 const showEndOfTheQuiz = () => {
   console.log("You have reached the last question!");
   const nextButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
   nextButton.disabled = true;
+  const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
+  skipButton.disabled = true;
 
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   const finaleMessage = document.createElement('p');
