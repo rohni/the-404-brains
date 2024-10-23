@@ -20,7 +20,7 @@ export const createStatusBar = (currentQuestion, totalQuestions, score = correct
     statusBar.appendChild(progressText);
     
     const scoreOfPlayer = document.createElement('span');
-    scoreOfPlayer.textContent = `${score}`;
+    scoreOfPlayer.textContent = `Score: ${score}`;
     scoreOfPlayer.classList.add('score');
     statusBar.appendChild(scoreOfPlayer);
 
