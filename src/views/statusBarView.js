@@ -1,4 +1,5 @@
-import {correctAnswersCount} from '../pages/questionPage.js'
+import {correctAnswersCount} from '../pages/questionPage.js';
+import { userName } from '../pages/welcomePage.js';
 
 export const createStatusBar = (currentQuestion, totalQuestions, score = correctAnswersCount) => {
     const statusBar = document.createElement('div');
@@ -20,9 +21,11 @@ export const createStatusBar = (currentQuestion, totalQuestions, score = correct
     statusBar.appendChild(progressText);
     
     const scoreOfPlayer = document.createElement('span');
+    const nameOfPlayer = document.createElement('span');
     scoreOfPlayer.textContent = `Score: ${score}`;
+    nameOfPlayer.textContent = `Player: ${userName}`
     scoreOfPlayer.classList.add('score');
-    statusBar.appendChild(scoreOfPlayer);
+    statusBar.prepend(nameOfPlayer, scoreOfPlayer);
 
     return statusBar;
 }
