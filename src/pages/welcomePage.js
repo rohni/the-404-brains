@@ -2,6 +2,8 @@ import { USER_INTERFACE_ID, START_QUIZ_BUTTON_ID } from '../constants.js';
 import { createWelcomeElement, createTitle, createFavicon } from '../views/welcomeView.js';
 import { initQuestionPage, resetQuiz } from './questionPage.js';
 
+export let userName = '';
+
 export const initWelcomePage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
@@ -24,7 +26,14 @@ const startQuiz = () => {
     alert('Name must be at least 2 characters long');
     return;
   } 
+  saveUserName();
   resetQuiz();
   initQuestionPage();
 };
 
+const saveUserName = () => {
+  userName = document.getElementById('name').value;
+  console.log(userName);
+  
+  return userName;
+}

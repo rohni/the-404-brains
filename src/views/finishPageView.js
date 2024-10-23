@@ -1,5 +1,6 @@
 import { RESTART_QUIZ_BUTTON_ID } from '../constants.js';
 import { correctAnswersCount } from '../pages/questionPage.js';
+import { userName } from '../pages/welcomePage.js';
 
 export const createFinishPageElement = () => {
     const finishPageElement = document.createElement('div');
@@ -11,7 +12,7 @@ export const createFinishPageElement = () => {
     : '<div class="expert-message">Great job! You are definitely a local from the Netherlands!!!</div>';
 
     finishPageElement.innerHTML = String.raw`
-        <h1>Well done!</h1>
+        <h1>Well done, ${userName}! </h1>
         <div> Your score is ${correctAnswersCount} </div>
         ${resultMessage}
         <button id="${RESTART_QUIZ_BUTTON_ID}">Try again!</button>
