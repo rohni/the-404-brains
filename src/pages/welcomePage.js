@@ -20,5 +20,9 @@ export const initWelcomePage = () => {
 };
 
 const startQuiz = () => {
+  if (document.getElementById('name').value.length < 2) {
+    alert('Name must be at least 2 characters long');
+    return;
+  } 
   initQuestionPage();
 };

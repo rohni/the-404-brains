@@ -23,7 +23,10 @@ export const createWelcomeElement = () => {
   const element = document.createElement('div');
   element.innerHTML = String.raw`
     <h1>Welcome</h1>
-    <button id="${START_QUIZ_BUTTON_ID}">start quiz</button>
+    <p>What is your name?</p>
+    <input type="text" id="name" placeholder="Enter your name" />
+    <button id="${START_QUIZ_BUTTON_ID}">Start quiz</button>
   `;
+
   return element;
 };
