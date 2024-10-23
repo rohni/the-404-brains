@@ -1,4 +1,4 @@
-import { START_QUIZ_BUTTON_ID } from '../constants.js';
+import { START_QUIZ_BUTTON_ID, WELCOME_ELEMENT_ID } from '../constants.js';
 
 /**
  * Create the welcome screen
@@ -20,13 +20,14 @@ export const createFavicon = ()=>{
 };
 
 export const createWelcomeElement = () => {
-  const element = document.createElement('div');
-  element.innerHTML = String.raw`
-    <h1>Welcome</h1>
+  const welcomeElement = document.createElement('div');
+  welcomeElement.id = WELCOME_ELEMENT_ID;
+  welcomeElement.innerHTML = String.raw`
+    <h1>Welcome to the Netherlands Quiz!</h1>
     <p>What is your name?</p>
     <input type="text" id="name" placeholder="Enter your name" />
     <button id="${START_QUIZ_BUTTON_ID}">Start quiz</button>
   `;
 
-  return element;
+  return welcomeElement;
 };
