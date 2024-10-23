@@ -23,13 +23,15 @@ export const initQuestionPage = () => {
 
   userInterface.appendChild(questionElement);
 
-  const statusBar = createStatusBar(quizData.currentQuestionIndex + 1, quizData.questions.length)
+  const statusBar = createStatusBar(quizData.currentQuestionIndex + 1, quizData.questions.length);
   userInterface.prepend(statusBar);
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
 
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {   
     const answerElement = createAnswerElement(key, answerText);
+
+    answerElement.setAttribute('data-key', key);
 
     answerElement.addEventListener('click', () => {
       const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
@@ -44,7 +46,7 @@ export const initQuestionPage = () => {
       } else {
         wrongAnswersCount++;
         const correctAnswerElement = Array.from(answersListElement.children).find((child) => 
-          child.innerHTML.includes(currentQuestion.correct)
+          child.getAttribute('data-key') === currentQuestion.correct
         );
         correctAnswerElement.style.backgroundColor = 'green';
         answerElement.style.backgroundColor = 'red';
@@ -57,21 +59,42 @@ export const initQuestionPage = () => {
   }
 
   document.getElementById(SKIP_QUESTION_BUTTON_ID)
-    .addEventListener('click',() => nextQuestion(statusBar));
-  
+    .addEventListener('click', () => nextQuestion(statusBar, true));
 };
 
-const nextQuestion = (statusBar) => {
-  showCorrectAnswer();
+const nextQuestion = (statusBar, skip = false) => {
+  if (skip) {
+    showCorrectAnswer();
+    setTimeout(() => {
+      moveToNextQuestion(statusBar);
+    }, 2000);
+  } else {
+    moveToNextQuestion(statusBar);
+  }
+};
 
+const moveToNextQuestion = (statusBar) => {
   if (quizData.currentQuestionIndex < quizData.questions.length - 1) {
     quizData.currentQuestionIndex++;
     initQuestionPage();
-  } else if (quizData.currentQuestionIndex === quizData.questions.length -1) {
+  } else if (quizData.currentQuestionIndex === quizData.questions.length - 1) {
     showEndOfTheQuiz();
   }
-  
+
   updateStatusBar(statusBar, quizData.currentQuestionIndex + 1, quizData.questions.length, correctAnswersCount);
+};
+
+const showCorrectAnswer = () => {
+  const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+  const answersListElement = document.getElementById(ANSWERS_LIST_ID);
+
+  const correctAnswerElement = Array.from(answersListElement.children).find((child) => 
+    child.getAttribute('data-key') === currentQuestion.correct
+  );
+
+  if (correctAnswerElement) {
+    correctAnswerElement.style.backgroundColor = 'green';
+  }
 };
 
 const showEndOfTheQuiz = () => {
@@ -82,7 +105,7 @@ const showEndOfTheQuiz = () => {
 
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   const finaleMessage = document.createElement('p');
-  finaleMessage.textContent = 'Congratulations! You have completed the quiz.'
+  finaleMessage.textContent = 'Congratulations! You have completed the quiz.';
   const finalResultBtn = document.createElement('button');
   finalResultBtn.textContent = 'Show Final Result!';
   finalResultBtn.classList.add(FINAL_RESULT_BUTTON_ID);
@@ -95,10 +118,6 @@ const showEndOfTheQuiz = () => {
 const showFinalResult = () => {
   console.log("Redirect to Final result page");
   initFinishPage();
-};
- 
-const showCorrectAnswer = () => {
-  console.log("correct answers", correctAnswersCount);
 };
 
 export const resetQuiz = () => {
