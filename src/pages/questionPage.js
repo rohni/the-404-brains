@@ -1,6 +1,5 @@
 import {
   ANSWERS_LIST_ID,
-  NEXT_QUESTION_BUTTON_ID,
   SKIP_QUESTION_BUTTON_ID,
   USER_INTERFACE_ID,
   FINAL_RESULT_BUTTON_ID
@@ -9,6 +8,7 @@ import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 import { createStatusBar, updateStatusBar } from '../views/statusBarView.js';
+import { initFinishPage } from './finishPage.js';
 
 export let correctAnswersCount = 0;
 let wrongAnswersCount = 0;
@@ -23,7 +23,6 @@ export const initQuestionPage = () => {
 
   userInterface.appendChild(questionElement);
 
-  // Status bar
   const statusBar = createStatusBar(quizData.currentQuestionIndex + 1, quizData.questions.length)
   userInterface.prepend(statusBar);
 
@@ -31,36 +30,35 @@ export const initQuestionPage = () => {
 
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {   
     const answerElement = createAnswerElement(key, answerText);
+
     answerElement.addEventListener('click', () => {
       const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
       skipButton.disabled = true;
+      
       if (answerClicked) return;
       answerClicked = true;
       
       if (key === currentQuestion.correct) {
         correctAnswersCount++;
         answerElement.style.backgroundColor = 'green';
-       
-
       } else {
         wrongAnswersCount++;
-        const correctAnswerElement = Array.from(answersListElement.children).find(
-          (child) => child.innerHTML.includes(currentQuestion.correct)
+        const correctAnswerElement = Array.from(answersListElement.children).find((child) => 
+          child.innerHTML.includes(currentQuestion.correct)
         );
         correctAnswerElement.style.backgroundColor = 'green';
         answerElement.style.backgroundColor = 'red';
-       
-      } setTimeout(function(){nextQuestion(statusBar);}
-      ,2000);
+      } 
+
+      setTimeout(() => nextQuestion(statusBar), 2000);
     });    
+
     answersListElement.appendChild(answerElement);
   }
 
   document.getElementById(SKIP_QUESTION_BUTTON_ID)
-    .addEventListener('click',function(){nextQuestion(statusBar)});
-
-  document.getElementById(NEXT_QUESTION_BUTTON_ID)
-    .addEventListener('click', () => nextQuestion(statusBar))
+    .addEventListener('click',() => nextQuestion(statusBar));
+  
 };
 
 const nextQuestion = (statusBar) => {
@@ -78,8 +76,7 @@ const nextQuestion = (statusBar) => {
 
 const showEndOfTheQuiz = () => {
   console.log("You have reached the last question!");
-  const nextButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
-  nextButton.disabled = true;
+
   const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
   skipButton.disabled = true;
 
@@ -97,10 +94,15 @@ const showEndOfTheQuiz = () => {
 
 const showFinalResult = () => {
   console.log("Redirect to Final result page");
+  initFinishPage();
 };
  
-
 const showCorrectAnswer = () => {
   console.log("correct answers", correctAnswersCount);
 };
- 
+
+export const resetQuiz = () => {
+  correctAnswersCount = 0;
+  wrongAnswersCount = 0;
+  quizData.currentQuestionIndex = 0;
+};

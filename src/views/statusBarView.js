@@ -27,8 +27,6 @@ export const createStatusBar = (currentQuestion, totalQuestions, score = correct
     return statusBar;
 }
 
-// Have to add Score too after Esen's feature
-
 export const updateStatusBar = (statusBarElement, currentQuestion, totalQuestions, score) => {    
     const progressBar = statusBarElement.querySelector('.progress-bar');
     const progressBarWidth = (currentQuestion / totalQuestions) * 100;
