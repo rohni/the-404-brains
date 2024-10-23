@@ -21,10 +21,30 @@ export const initQuestionPage = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   const questionElement = createQuestionElement(currentQuestion.text);
 
-  userInterface.appendChild(questionElement);
-
   const statusBar = createStatusBar(quizData.currentQuestionIndex + 1, quizData.questions.length)
   userInterface.prepend(statusBar);
+
+  const questionPageContainer = document.createElement('div');
+  questionPageContainer.classList.add('question-page-container');
+  userInterface.appendChild(questionPageContainer);
+
+  const imageWrapper = document.createElement('div');
+  imageWrapper.classList.add('image-wrapper');
+
+  questionPageContainer.appendChild(imageWrapper);
+
+  const imageElement = document.createElement('img');
+  imageElement.src = currentQuestion.image;
+  imageElement.alt = 'Image of the question';
+  imageElement.classList.add('question-image');
+
+  imageWrapper.appendChild(imageElement);
+
+  const questionBox = document.createElement('div');
+  questionBox.classList.add('question-box');
+  questionPageContainer.appendChild(questionBox);
+
+  questionBox.appendChild(questionElement);
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
 
