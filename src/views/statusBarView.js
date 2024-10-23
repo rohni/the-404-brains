@@ -20,12 +20,16 @@ export const createStatusBar = (currentQuestion, totalQuestions, score = correct
     progressText.textContent = `${currentQuestion}/${totalQuestions}`;
     statusBar.appendChild(progressText);
     
+    const playerInfoContainer = document.createElement('div');
+    playerInfoContainer.classList.add('player-info-container');
     const scoreOfPlayer = document.createElement('span');
     const nameOfPlayer = document.createElement('span');
     scoreOfPlayer.textContent = `Score: ${score}`;
     nameOfPlayer.textContent = `Player: ${userName}`
     scoreOfPlayer.classList.add('score');
-    statusBar.prepend(nameOfPlayer, scoreOfPlayer);
+    playerInfoContainer.appendChild(nameOfPlayer);
+    playerInfoContainer.appendChild(scoreOfPlayer);
+    statusBar.prepend(playerInfoContainer);
 
     return statusBar;
 }

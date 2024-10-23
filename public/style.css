@@ -1,3 +1,69 @@
+body {
+  background-color: #fdd09b;
+}
+
+button {
+  background-color: #fa6b05;
+  color: #ffffff  ;
+  font-size: 16px;
+  padding: 12px 24px;  
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #e05f04;
+  transform: translateY(-2px);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(250, 107, 5, 0.4);
+}
+
+button:active {
+  background-color: #c94f04;
+  transform: translateY(0);
+}
+
+button:disabled {
+    background-color: #f0a85c;
+    color: #ffffffb3;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+    opacity: 0.6;
+}
+
+input {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #333;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: 2px solid #fa6b05;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 300px;
+  box-sizing: border-box;
+  padding: 6;
+  cursor: pointer;
+}
+
+input:focus {
+  border-color: #e05f04;
+  box-shadow: 0 0 8px rgba(250, 107, 5, 0.4);
+}
+
+input:hover {
+  border-color: #f5ab73;
+}
+
 .centered {
   position: fixed;
   top: 50%;
@@ -16,6 +82,21 @@ ul {
   list-style: none;
 }
 
+#welcome-element-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  height: 100vh;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+#welcome-element-container > *{
+  margin-bottom: 30px;
+} 
+
 #user-interface {
   text-align: center;
   width: 60%;
@@ -26,10 +107,13 @@ ul {
   flex-direction: column;
   align-items: center;
 }
+.player-info-container {
+
+}
 
 .progress-bar-container {
   width: 100%;
-  background-color: #e0e0e0;
+  background-color: #ffffff;
   border-radius: 5px;
   margin-bottom: 10px;
 }
