@@ -11,8 +11,8 @@ import { createStatusBar, updateStatusBar } from '../views/statusBarView.js';
 import { initFinishPage } from './finishPage.js';
 
 export let correctAnswersCount = 0;
-let wrongAnswersCount = 0;
-
+       let wrongAnswersCount = 0;
+export let skipAnswer = 0;
 export const initQuestionPage = () => {
   let answerClicked = false; 
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -64,10 +64,11 @@ export const initQuestionPage = () => {
 
 const nextQuestion = (statusBar, skip = false) => {
   if (skip) {
+    skipAnswer+=1;
     showCorrectAnswer();
     setTimeout(() => {
       moveToNextQuestion(statusBar);
-    }, 2000);
+    }, 1000);
   } else {
     moveToNextQuestion(statusBar);
   }
