@@ -1,5 +1,5 @@
 import { RESTART_QUIZ_BUTTON_ID } from '../constants.js';
-import { correctAnswersCount, skipAnswer } from '../pages/questionPage.js';
+import { correctAnswersCount } from '../pages/questionPage.js';
 import { userName } from '../pages/welcomePage.js';
 
 export const createFinishPageElement = () => {
@@ -14,7 +14,6 @@ export const createFinishPageElement = () => {
     finishPageElement.innerHTML = String.raw`
         <h1>Well done, ${userName}! </h1>
         <div> Your score is ${correctAnswersCount} </div>
-        <div> The number of questions you have skipped is ${skipAnswer} </div>
         ${resultMessage}
         <button id="${RESTART_QUIZ_BUTTON_ID}">Try again!</button>
     `;
