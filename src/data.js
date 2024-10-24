@@ -32,7 +32,8 @@ export const quizData = {
           "text": "Holland.com",
           "href": "https://www.holland.com/global/tourism/destinations/amsterdam.htm"
         }
-      ]
+      ],
+      "image": "https://www.probuilder.com/sites/default/files/pb/amsterdam-canal-house.jpeg"
     },
     {
       "text": "Which of the following is a traditional Dutch food?",
@@ -53,7 +54,8 @@ export const quizData = {
           "text": "Expatica",
           "href": "https://www.expatica.com/nl/lifestyle/food-drink/dutch-food-100-things-101947/"
         }
-      ]
+      ],
+      "image": "https://www.thuisbezorgd.nl/foodwiki/uploads/2020/01/stroopwafel1-1080x960.jpg"
     },
     {
       "text": "What color is typically associated with the Dutch royal family?",
@@ -74,7 +76,8 @@ export const quizData = {
           "text": "Royal House of the Netherlands",
           "href": "https://www.royal-house.nl/"
         }
-      ]
+      ],
+      "image": "https://www.holland.com/upload_mm/7/2/2/82988_fullimage_koninklijke%20familie%202021%20%C2%A9mischa%20schoemaker%20via%20rvd.jpg"
     },
     {
       "text": "Which country borders the Netherlands to the south?",
@@ -95,7 +98,8 @@ export const quizData = {
           "text": "Britannica",
           "href": "https://www.britannica.com/place/Netherlands"
         }
-      ]
+      ],
+      "image": "https://www.liberationroute.com/pictures/6367/3_borders_2_1280_1280_fit_90.jpg"
     },
     {
       "text": "Which city is known for its international court of justice?",
@@ -116,7 +120,8 @@ export const quizData = {
           "text": "The Hague",
           "href": "https://www.denhaag.com/en/international-city-of-peace-and-justice"
         }
-      ]
+      ],
+      "image": "https://www.icj-cij.org/sites/default/files/homebanner.jpg"
     },
     {
       "text": "Which of these is a major river flowing through the Netherlands?",
@@ -137,7 +142,8 @@ export const quizData = {
           "text": "World Atlas",
           "href": "https://www.worldatlas.com/rivers/rhine-river.html"
         }
-      ]
+      ],
+      "image": "https://images.ctfassets.net/1u811bvgvthc/2b8tk4ioqcOTFgO9RpeYq2/40effa02d9f710f1b293bae46d0df5c9/ships_on_rhine.jpg?fm=jpg&fl=progressive"
     },
     {
       "text": "What is the name of the Dutch national airline?",
@@ -158,7 +164,8 @@ export const quizData = {
           "text": "SkyTeam",
           "href": "https://www.skyteam.com/en/about/airlines/klm"
         }
-      ]
+      ],
+      "image": "https://www.marketingtribune.nl/design/nieuws/2024/02/klm-zet-ai-in-de-strijd-tegen-voedselverspilling/klm-ai-voedselverspilling.JPG"
     },
     {
       "text": "What is the national flower of the Netherlands?",
@@ -179,7 +186,8 @@ export const quizData = {
           "text": "Dutch Review",
           "href": "https://dutchreview.com/culture/why-tulips-are-the-national-flower-of-the-netherlands/"
         }
-      ]
+      ],
+      "image": "https://cdn.contexttravel.com/image/upload/w_1500,q_60/v1648232421/blog/Tulips%20in%20Amsterdam%20and%20Keukenhof%2C%20the%20Garden%20of%20Europe%20/tulips_hero.jpg"
     },
     {
       "text": "What is the main language spoken in the Netherlands?",
@@ -200,7 +208,8 @@ export const quizData = {
           "text": "Expatica",
           "href": "https://www.expatica.com/nl/living/integration/language-in-the-netherlands-105680/"
         }
-      ]
+      ],
+      "image": "https://i.pinimg.com/564x/86/06/cf/8606cf76b4ccabf0cd32a96f487dd40f.jpg"
     },
     {
       "text": "Which famous Dutch artist painted 'The Starry Night'?",
@@ -221,7 +230,8 @@ export const quizData = {
           "text": "The Art Story",
           "href": "https://www.theartstory.org/artist/van-gogh-vincent/"
         }
-      ]
+      ],
+      "image": "https://m.media-amazon.com/images/I/71goHUmfvqL._AC_SL1008_.jpg"
     }
   ]  
 };
