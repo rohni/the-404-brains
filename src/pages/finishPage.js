@@ -6,8 +6,12 @@ export const initFinishPage = () => {
     const userInterface = document.getElementById(USER_INTERFACE_ID);
     userInterface.innerHTML = '';
 
+    const finisPageContainer = document.createElement('div');
+    finisPageContainer.classList.add('finish-page-container');
+    userInterface.appendChild(finisPageContainer);
+
     const finishPageElement = createFinishPageElement();
-    userInterface.appendChild(finishPageElement);
+    finisPageContainer.appendChild(finishPageElement);
 
     const restartQuizBtn = document.getElementById(RESTART_QUIZ_BUTTON_ID);
     restartQuizBtn.addEventListener('click', restartQuiz)
