@@ -11,8 +11,11 @@ export const initWelcomePage = () => {
   const welcomeElement = createWelcomeElement();
   const titleOfWebsite = createTitle();
   const favicon = createFavicon();
+  const welcomeBox = document.createElement('div');
+  welcomeBox.classList.add('welcome-box');
+  userInterface.appendChild(welcomeBox);
 
-  userInterface.appendChild(welcomeElement);
+  welcomeBox.appendChild(welcomeElement);
   document.head.appendChild(titleOfWebsite);
   document.head.appendChild(favicon);
 
