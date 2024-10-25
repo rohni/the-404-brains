@@ -65,6 +65,10 @@ input:hover {
   border-color: #f5ab73;
 }
 
+h1 {
+  color: #333;
+}
+
 .centered {
   position: fixed;
   top: 50%;
@@ -81,6 +85,24 @@ input:hover {
 
 ul {
   list-style: none;
+}
+
+ul > * {
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  color: #fa6b05;
+  font-size: 16px;
+  padding: 12px 24px;  
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: #e05f04;
+  color: #ffffff;
 }
 
 #welcome-element-container {
