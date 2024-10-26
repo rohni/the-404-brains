@@ -16,13 +16,9 @@ export const createQuestionElement = (question) => {
           <ul id="${ANSWERS_LIST_ID}">
           </ul>
     </div>
-
-
-<button id="${SKIP_QUESTION_BUTTON_ID}">
+    <button id="${SKIP_QUESTION_BUTTON_ID}">
       Skip question
     </button>
-
-  
   `;
 
   return element;

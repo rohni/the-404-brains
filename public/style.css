@@ -55,7 +55,7 @@ input {
   width: 300px;
   box-sizing: border-box;
   padding: 6;
-  cursor: pointer;
+
 }
 
 input:focus {
@@ -181,7 +181,7 @@ li:hover {
   object-fit: cover;
 }
 
-.question-box {
+.question-container {
   display: flex;
   color: #ffffff;
   /* text-shadow: 0 4px 4px rgba(0, 0, 0, 0.52); */
@@ -190,7 +190,7 @@ li:hover {
   margin-bottom: 20px;
 }
 
-.question-box h1 {
+.question-container   h1 {
   font-size: 2rem;
   margin-bottom: 20px;
 }
@@ -239,7 +239,7 @@ li:hover {
   justify-content: center;
   align-items: center;
   color: #ffffff;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.52);
+  /* text-shadow: 0 4px 4px rgba(0, 0, 0, 0.52); */
   height: 100vh;
   text-align: center;
   font-size: 1.5rem;
