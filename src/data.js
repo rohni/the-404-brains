@@ -41,7 +41,7 @@ export const quizData = {
         "a": "Sushi",
         "b": "Stroopwafel",
         "c": "Tacos",
-        "d": "Bitterballen"
+        "d": "Pizza"
       },
       "correct": "b",
       "selected": "b",

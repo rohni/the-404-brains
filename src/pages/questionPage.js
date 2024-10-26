@@ -36,10 +36,12 @@ export const initQuestionPage = () => {
   questionPageContainer.appendChild(questionContainer);
 
 
-  const imageWrapper = document.createElement('div');
-  imageWrapper.classList.add('image-wrapper');
+  // const imageWrapper = document.createElement('div');
+  // imageWrapper.classList.add('image-wrapper');
 
-  questionContainer.appendChild(imageWrapper);
+  // questionContainer.appendChild(imageWrapper);
+
+  const imageWrapper = document.getElementById('image-wrapper');
 
   const imageElement = document.createElement('img');
   imageElement.src = currentQuestion.image;

@@ -128,10 +128,26 @@ ul {
   width: 100%;
 }
 
+#content-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#content-container >* {
+    flex: 1;
+    max-width: 50%;
+    justify-content: center;
+    align-content: center;
+}
+
 .image-wrapper {
   display: flex;
   justify-content: center;
+  align-content: center;
   width: 100%;
+  object-fit: cover;
+  justify-self: center;
 }
 
 .question-image {
@@ -147,12 +163,13 @@ ul {
   flex-direction: column;
   justify-content: center;
   margin-bottom: 20px;
-
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
 }
+
+.question-box h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
 
 .status-bar {
   display: flex;
