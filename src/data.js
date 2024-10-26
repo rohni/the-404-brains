@@ -55,7 +55,7 @@ export const quizData = {
           "href": "https://www.expatica.com/nl/lifestyle/food-drink/dutch-food-100-things-101947/"
         }
       ],
-      "image": "https://www.thuisbezorgd.nl/foodwiki/uploads/2020/01/stroopwafel1-1080x960.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Hollandse_appeltaart_van_goudreinet.jpg/1280px-Hollandse_appeltaart_van_goudreinet.jpg"
     },
     {
       "text": "What color is typically associated with the Dutch royal family?",
@@ -209,7 +209,7 @@ export const quizData = {
           "href": "https://www.expatica.com/nl/living/integration/language-in-the-netherlands-105680/"
         }
       ],
-      "image": "https://i.pinimg.com/564x/86/06/cf/8606cf76b4ccabf0cd32a96f487dd40f.jpg"
+      "image": "https://i0.wp.com/cms.babbel.news/wp-content/uploads/2017/12/Niederlaendisch-hallo-FB1200.png"
     },
     {
       "text": "Which famous Dutch artist painted 'The Starry Night'?",
