@@ -91,14 +91,21 @@ export const initQuestionPage = () => {
 };
 
 const nextQuestion = (statusBar, skip = false) => {
+  const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
+  skipButton.disabled = true;
+
   if (skip) {
     skipAnswer+=1;
     showCorrectAnswer();
     setTimeout(() => {
       moveToNextQuestion(statusBar);
+      skipButton.disabled = false;
+
     }, 1000);
   } else {
     moveToNextQuestion(statusBar);
+    skipButton.disabled = false;
+
   }
 };
 
