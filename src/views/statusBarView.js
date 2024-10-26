@@ -25,7 +25,7 @@ export const createStatusBar = (currentQuestion, totalQuestions, score = correct
     const scoreOfPlayer = document.createElement('span');
     const nameOfPlayer = document.createElement('span');
     scoreOfPlayer.textContent = `Score: ${score}`;
-    nameOfPlayer.textContent = `Player: ${userName} `;
+    nameOfPlayer.textContent = `Name: ${userName} `;
     scoreOfPlayer.classList.add('score');
     playerInfoContainer.appendChild(nameOfPlayer);
     playerInfoContainer.appendChild(scoreOfPlayer);

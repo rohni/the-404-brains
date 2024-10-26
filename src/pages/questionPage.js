@@ -11,8 +11,8 @@ import { createStatusBar, updateStatusBar } from '../views/statusBarView.js';
 import { initFinishPage } from './finishPage.js';
 
 export let correctAnswersCount = 0;
-       let wrongAnswersCount = 0;
 export let skipAnswer = 0;
+
 export const initQuestionPage = () => {
   let answerClicked = false; 
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -36,10 +36,12 @@ export const initQuestionPage = () => {
   questionPageContainer.appendChild(questionContainer);
 
 
-  const imageWrapper = document.createElement('div');
-  imageWrapper.classList.add('image-wrapper');
+  // const imageWrapper = document.createElement('div');
+  // imageWrapper.classList.add('image-wrapper');
 
-  questionContainer.appendChild(imageWrapper);
+  // questionContainer.appendChild(imageWrapper);
+
+  const imageWrapper = document.getElementById('image-wrapper');
 
   const imageElement = document.createElement('img');
   imageElement.src = currentQuestion.image;
@@ -48,11 +50,11 @@ export const initQuestionPage = () => {
 
   imageWrapper.appendChild(imageElement);
 
-  const questionBox = document.createElement('div');
-  questionBox.classList.add('question-box');
-  questionContainer.appendChild(questionBox);
+  // const questionBox = document.createElement('div');
+  // questionBox.classList.add('question-box');
+  // questionContainer.appendChild(questionBox);
 
-  questionBox.appendChild(questionElement);
+  questionContainer.appendChild(questionElement);
 
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
 
@@ -72,13 +74,12 @@ export const initQuestionPage = () => {
         correctAnswersCount++;
         answerElement.style.backgroundColor = 'green';
       } else {
-        wrongAnswersCount++;
         const correctAnswerElement = Array.from(answersListElement.children).find((child) => 
           child.getAttribute('data-key') === currentQuestion.correct
         );
         correctAnswerElement.style.backgroundColor = 'green';
         answerElement.style.backgroundColor = 'red';
-      } 
+      }
 
       setTimeout(() => nextQuestion(statusBar), 2000);
     });    
@@ -90,22 +91,20 @@ export const initQuestionPage = () => {
     .addEventListener('click', () => nextQuestion(statusBar, true));
 };
 
-const nextQuestion = (statusBar, skip = false) => {
+const nextQuestion = (statusBar, skip=false) => {
   const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
   skipButton.disabled = true;
 
   if (skip) {
     skipAnswer+=1;
     showCorrectAnswer();
+    skipButton.disabled = false;
     setTimeout(() => {
       moveToNextQuestion(statusBar);
-      skipButton.disabled = false;
-
     }, 1000);
   } else {
     moveToNextQuestion(statusBar);
     skipButton.disabled = false;
-
   }
 };
 
@@ -158,6 +157,6 @@ const showFinalResult = () => {
 
 export const resetQuiz = () => {
   correctAnswersCount = 0;
-  wrongAnswersCount = 0;
   quizData.currentQuestionIndex = 0;
+  skipAnswer = 0;
 };
