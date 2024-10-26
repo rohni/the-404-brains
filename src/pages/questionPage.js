@@ -36,10 +36,12 @@ export const initQuestionPage = () => {
   questionPageContainer.appendChild(questionContainer);
 
 
-  const imageWrapper = document.createElement('div');
-  imageWrapper.classList.add('image-wrapper');
+  // const imageWrapper = document.createElement('div');
+  // imageWrapper.classList.add('image-wrapper');
 
-  questionContainer.appendChild(imageWrapper);
+  // questionContainer.appendChild(imageWrapper);
+
+  const imageWrapper = document.getElementById('image-wrapper');
 
   const imageElement = document.createElement('img');
   imageElement.src = currentQuestion.image;
@@ -91,14 +93,21 @@ export const initQuestionPage = () => {
 };
 
 const nextQuestion = (statusBar, skip = false) => {
+  const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
+  skipButton.disabled = true;
+
   if (skip) {
     skipAnswer+=1;
     showCorrectAnswer();
     setTimeout(() => {
       moveToNextQuestion(statusBar);
+      skipButton.disabled = false;
+
     }, 1000);
   } else {
     moveToNextQuestion(statusBar);
+    skipButton.disabled = false;
+
   }
 };
 

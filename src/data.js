@@ -41,7 +41,7 @@ export const quizData = {
         "a": "Sushi",
         "b": "Stroopwafel",
         "c": "Tacos",
-        "d": "Bitterballen"
+        "d": "Pizza"
       },
       "correct": "b",
       "selected": "b",
@@ -99,7 +99,7 @@ export const quizData = {
           "href": "https://www.britannica.com/place/Netherlands"
         }
       ],
-      "image": "https://www.liberationroute.com/pictures/6367/3_borders_2_1280_1280_fit_90.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/da/Baarle-Nassau_fronti%C3%A8re_caf%C3%A9.jpg"
     },
     {
       "text": "Which city is known for its international court of justice?",
