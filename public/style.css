@@ -130,7 +130,7 @@ li:hover {
 } 
 
 #user-interface {
-  text-align: center;
+  /* text-align: center; */
   width: 60%;
 }
 
@@ -208,6 +208,10 @@ li:hover {
 }
 
 .player-info-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 
 }
 
