@@ -91,24 +91,19 @@ export const initQuestionPage = () => {
     .addEventListener('click', () => nextQuestion(statusBar, true));
 };
 
-const nextQuestion = (statusBar, skip=false) => {
-  const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
-  skipButton.disabled = true;
-
+const nextQuestion = (statusBar, skip = false) => {
   if (skip) {
-    skipAnswer+=1;
+    skipAnswer += 1;
     showCorrectAnswer();
-    skipButton.disabled = false;
     setTimeout(() => {
-      moveToNextQuestion(statusBar);
+      goToNextQuestion(statusBar);
     }, 1000);
   } else {
-    moveToNextQuestion(statusBar);
-    skipButton.disabled = false;
+    goToNextQuestion(statusBar);
   }
 };
 
-const moveToNextQuestion = (statusBar) => {
+const goToNextQuestion = (statusBar) => {
   if (quizData.currentQuestionIndex < quizData.questions.length - 1) {
     quizData.currentQuestionIndex++;
     initQuestionPage();
@@ -116,8 +111,14 @@ const moveToNextQuestion = (statusBar) => {
     showEndOfTheQuiz();
   }
 
-  updateStatusBar(statusBar, quizData.currentQuestionIndex + 1, quizData.questions.length, correctAnswersCount);
+  updateStatusBar(
+    statusBar,
+    quizData.currentQuestionIndex + 1,
+    quizData.questions.length,
+    correctAnswersCount
+  );
 };
+;
 
 const showCorrectAnswer = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];

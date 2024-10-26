@@ -43,5 +43,5 @@ export const updateStatusBar = (statusBarElement, currentQuestion, totalQuestion
     progressText.textContent = `${currentQuestion}/${totalQuestions}`;
 
     const scoreElement = statusBarElement.querySelector('.score');
-    scoreElement.textContent = `${score}`;
+    scoreElement.textContent = `Score: ${score}`;
 }
