@@ -1,10 +1,5 @@
 import { START_QUIZ_BUTTON_ID, WELCOME_ELEMENT_ID } from '../constants.js';
 
-/**
- * Create the welcome screen
- * @returns {Element}
- */
-
 export const createTitle = ()=>{
   const title = document.getElementsByTagName('title')[0];
   title.textContent = 'c50-browsers-the-404-brains';

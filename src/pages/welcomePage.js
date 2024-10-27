@@ -35,8 +35,6 @@ const startQuiz = () => {
 };
 
 const saveUserName = () => {
-  userName = document.getElementById('name').value;
-  console.log(userName);
-  
+  userName = document.getElementById('name').value;  
   return userName;
 }
