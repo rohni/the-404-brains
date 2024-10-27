@@ -249,12 +249,23 @@ li:hover {
 .score-text {
   font-size: 2rem;
   margin-bottom: 20px;
+  font-weight: bold;
+  color:rgb(0, 94, 255)
 }
 .skipped-questions {
   font-size: 1.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  color: rgb(0, 94, 255)
 }
 .result-message {
   font-size: 1.5rem;
   margin-bottom: 20px;
+  font-weight: bold;
+  color: rgb(0, 94, 255)
+}
+.well-done-text {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: rgb(0, 94, 255)
 }
