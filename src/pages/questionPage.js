@@ -87,8 +87,13 @@ export const initQuestionPage = () => {
     answersListElement.appendChild(answerElement);
   }
 
-  document.getElementById(SKIP_QUESTION_BUTTON_ID)
-    .addEventListener('click', () => nextQuestion(statusBar, true));
+  const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
+
+  skipButton.addEventListener('click', () => {
+    skipButton.disabled = true;
+    nextQuestion(statusBar, true)
+  });
+    
 };
 
 const nextQuestion = (statusBar, skip = false) => {
