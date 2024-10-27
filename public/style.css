@@ -258,3 +258,12 @@ li:hover {
   font-size: 1.5rem;
   margin-bottom: 20px;
 }
+
+.final-message {
+  color: #333;
+  font-size: 1.5rem;
+  background-color: rgba(253, 207, 155, 0.712);;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: bold;
+}
