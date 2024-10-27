@@ -35,12 +35,6 @@ export const initQuestionPage = () => {
   questionContainer.classList.add('question-container');
   questionPageContainer.appendChild(questionContainer);
 
-
-  // const imageWrapper = document.createElement('div');
-  // imageWrapper.classList.add('image-wrapper');
-
-  // questionContainer.appendChild(imageWrapper);
-
   const imageWrapper = document.getElementById('image-wrapper');
 
   const imageElement = document.createElement('img');
@@ -49,10 +43,6 @@ export const initQuestionPage = () => {
   imageElement.classList.add('question-image');
 
   imageWrapper.appendChild(imageElement);
-
-  // const questionBox = document.createElement('div');
-  // questionBox.classList.add('question-box');
-  // questionContainer.appendChild(questionBox);
 
   questionContainer.appendChild(questionElement);
 
@@ -87,17 +77,20 @@ export const initQuestionPage = () => {
     answersListElement.appendChild(answerElement);
   }
 
-  document.getElementById(SKIP_QUESTION_BUTTON_ID)
-    .addEventListener('click', () => nextQuestion(statusBar, true));
+  const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
+
+  skipButton.addEventListener('click', () => {
+    skipButton.disabled = true;
+    nextQuestion(statusBar, true)
+  });
+    
 };
 
 const nextQuestion = (statusBar, skip = false) => {
   if (skip) {
     skipAnswer += 1;
     showCorrectAnswer();
-    setTimeout(() => {
-      goToNextQuestion(statusBar);
-    }, 1000);
+    setTimeout(() => goToNextQuestion(statusBar), 1000);
   } else {
     goToNextQuestion(statusBar);
   }
@@ -118,7 +111,6 @@ const goToNextQuestion = (statusBar) => {
     correctAnswersCount
   );
 };
-;
 
 const showCorrectAnswer = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
@@ -134,8 +126,6 @@ const showCorrectAnswer = () => {
 };
 
 const showEndOfTheQuiz = () => {
-  console.log("You have reached the last question!");
-
   const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
   skipButton.disabled = true;
 
@@ -152,7 +142,6 @@ const showEndOfTheQuiz = () => {
 };
 
 const showFinalResult = () => {
-  console.log("Redirect to Final result page");
   initFinishPage();
 };
 
