@@ -56,7 +56,8 @@ export const initQuestionPage = () => {
     answerElement.addEventListener('click', () => {
       const skipButton = document.getElementById(SKIP_QUESTION_BUTTON_ID);
       skipButton.disabled = true;
-      
+      answerElement.disabled = true; 
+
       if (answerClicked) return;
       answerClicked = true;
       
@@ -83,7 +84,6 @@ export const initQuestionPage = () => {
     skipButton.disabled = true;
     nextQuestion(statusBar, true)
   });
-    
 };
 
 const nextQuestion = (statusBar, skip = false) => {
@@ -131,6 +131,7 @@ const showEndOfTheQuiz = () => {
 
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   const finaleMessage = document.createElement('p');
+  finaleMessage.classList.add('final-message');
   finaleMessage.textContent = 'Congratulations! You have completed the quiz.';
   const finalResultBtn = document.createElement('button');
   finalResultBtn.textContent = 'Show Final Result!';
