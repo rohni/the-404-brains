@@ -21,9 +21,9 @@ export const createFinishPageElement = () => {
     finishPageElement.innerHTML = String.raw`
         <h1>Well done, ${userName}! </h1>
         <img src="${image}" alt="Finish image"/>
-        <div> You have answered ${correctAnswersCount} questions correctly! </div>
-        <div> The number of questions you have skipped is ${skipAnswer} </div>
-        ${resultMessage}
+        <div class= "score-text"> You have answered ${correctAnswersCount} questions correctly! </div>
+        <div class= "skipped-questions"> The number of questions you have skipped is ${skipAnswer} </div>
+        <div class= "result-message"> ${resultMessage} </div>
         <button id="${RESTART_QUIZ_BUTTON_ID}">Try again!</button>
     `;
     return finishPageElement;
